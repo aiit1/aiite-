@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-31j">
+<title>金地金速報画面</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+img.ex1 {
+width: 96px;
+height: 65px;
+}
+img.ex2 {
+width: 70%;
+height: 70%;
+}
+</style>
+<script type="text/javascript" src="test.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+	//WebSocket
+	socket = new WebSocket("ws://192.168.0.3:10080");
+	socket.onmessage = function(event) {
+	document.getElementById('news').innerHTML = event.data;
+	}
+}
+</script>
+</head>
+
+<body>
+<form name="form1">
+<div id="out"><!-- 外周 -->
+<div id="head">
+<h1>金地金・プラチナ速報画面</h1>
+</div><!-- head -->
+
+<div id="main">
+
+	<div id="right"><!-- 本文 -->
+	<h2>金地金・プラチナ速報</h2>
+　　　　<div class = "tex1"><金地金・プラチナ速報受信中></div>
+        <div id="news"></div>
+        <!--<iframe src="http://192.168.0.3:10080/" width="500px" height="400px"></iframe>-->
+        <!--<iframe src="./aaa.html" width="1px" height="1px"></iframe>-->
+
+	</div><!-- right -->
+
+	<div id="left"><!-- サイドメニュー部分 -->
+	<ul>
+	<li><a href="javascript:end()">閉じる</a></li>
+	</ul>
+	</div><!-- left -->
+
+<br style="clear:both">
+</div><!-- main -->
+
+
+<div id="foot">
+</div><!-- foot -->
+</div><!-- out -->
+</form>
+</body>
+</html>
